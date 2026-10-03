@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mis XV Años - Isabela | Invitación Exclusiva</title>
+  <meta name="description" content="Acompáñame a celebrar mis XV Años - Isabela. 13 de Noviembre." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Floating Sparkles & Silver Dust Canvas -->
+  <canvas id="particlesCanvas"></canvas>
+
+  <!-- Background Music Player Floating Control -->
+  <div class="music-floating-btn" id="musicBtn" title="Reproducir / Pausar Música">
+    <div class="music-disc">
+      <i class="fa-solid fa-music"></i>
+    </div>
+    <span class="music-tooltip">Música</span>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="bgAudio" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-waltz-112349.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Main Luxury Continuous Page Wrapper -->
+  <div class="invitation-container">
+    
+    <!-- ==============================================
+         1. HERO SECTION (Header with Silver Flowers)
+         ============================================== -->
+    <header class="page-section hero-section">
+      <!-- Decorative Silver Corner Elements (Transparent PNGs) -->
+      <img src="silver_flowers_corner.png" alt="Silver Flower Corner" class="floral-corner top-left-corner" />
+      <img src="silver_flowers_corner.png" alt="Silver Flower Corner" class="floral-corner top-right-corner" />
+
+      <div class="hero-crest">
+        <span class="crest-icon">👑</span>
+      </div>
+
+      <p class="subtitle-royal">Acompaña a la corte en este gran sueño</p>
+      <h2 class="pre-title">MIS QUINCE AÑOS</h2>
+      <h1 class="main-name shimmer-silver">Isabela</h1>
+
+      <!-- Central Silver Bouquet Highlight (Replaced Photo) -->
+      <div class="silver-flowers-hero">
+        <img src="silver_flowers_center.png" alt="Ramo de Flores Plateadas" class="flowers-centerpiece" />
+      </div>
+
+      <p class="poetic-quote">
+        "Hay momentos inolvidables que se atesoran en el corazón para siempre; 
+        compartir este día contigo es el regalo más hermoso que la vida me puede dar."
+      </p>
+    </header>
+
+    <!-- SILVER FLORAL DIVIDER 1 -->
+    <div class="silver-divider-bar">
+      <img src="silver_flowers_divider.png" alt="Silver Floral Garland" class="divider-floral-img" />
+    </div>
+
+    <!-- ==============================================
+         2. COUNTDOWN SECTION
+         ============================================== -->
+    <section class="page-section countdown-section">
+      <h3 class="section-title"><i class="fa-regular fa-clock"></i> TIEMPO RESTANTE</h3>
+      <p class="countdown-caption">Contando cada segundo para celebrar juntos</p>
+      
+      <div class="countdown-grid" id="countdownGrid">
+        <div class="time-box">
+          <span class="time-number" id="days">00</span>
+          <span class="time-label">Días</span>
+        </div>
+        <div class="time-box">
+          <span class="time-number" id="hours">00</span>
+          <span class="time-label">Horas</span>
+        </div>
+        <div class="time-box">
+          <span class="time-number" id="minutes">00</span>
+          <span class="time-label">Min</span>
+        </div>
+        <div class="time-box">
+          <span class="time-number" id="seconds">00</span>
+          <span class="time-label">Seg</span>
+        </div>
+      </div>
+
+      <div class="save-calendar-wrapper">
+        <a id="addToCalendarBtn" class="btn-silver-outline" target="_blank">
+          <i class="fa-regular fa-calendar-plus"></i> Agendar en Google Calendar
+        </a>
+      </div>
+    </section>
+
+    <!-- SILVER FLORAL DIVIDER 2 -->
+    <div class="silver-divider-bar">
+      <img src="silver_flowers_divider.png" alt="Silver Floral Garland" class="divider-floral-img" />
+    </div>
+
+    <!-- ==============================================
+         3. EVENT DETAILS (Date & Location)
+         ============================================== -->
+    <section class="page-section details-section">
+      <div class="details-grid">
+        
+        <!-- Date Box -->
+        <div class="detail-item">
+          <div class="detail-icon-circle">
+            <i class="fa-solid fa-calendar-day"></i>
+          </div>
+          <h4>¿CUÁNDO?</h4>
+          <p class="highlight-text">Viernes, 13 de Noviembre</p>
+          <p class="detail-subtext">Recepción: 7:00 PM</p>
+        </div>
+
+        <div class="vertical-silver-divider"></div>
+
+        <!-- Location Box -->
+        <div class="detail-item">
+          <div class="detail-icon-circle">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <h4>¿DÓNDE?</h4>
+          <p class="highlight-text">Carrera 81 #33-84</p>
+          <p class="detail-subtext">Laureles, Medellín</p>
+        </div>
+
+      </div>
+
+      <!-- Map Button & GPS -->
+      <div class="location-actions">
+        <a href="https://maps.google.com/?q=Carrera+81+%2333-84+Laureles+Medellin" target="_blank" class="btn-royal">
+          <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
+        </a>
+        <a href="https://waze.com/ul?q=Carrera+81+%2333-84+Laureles" target="_blank" class="btn-silver-ghost">
+          <i class="fa-brands fa-waze"></i> Abrir con Waze
+        </a>
+      </div>
+    </section>
+
+    <!-- SILVER FLORAL DIVIDER 3 -->
+    <div class="silver-divider-bar">
+      <img src="silver_flowers_divider.png" alt="Silver Floral Garland" class="divider-floral-img" />
+    </div>
+
+    <!-- ==============================================
+         4. DRESS CODE & GIFTS
+         ============================================== -->
+    <section class="page-section two-column-section">
+      <div class="info-block">
+        <div class="info-icon">
+          <i class="fa-solid fa-vest-patches"></i>
+        </div>
+        <h4>CÓDIGO DE VESTIR</h4>
+        <p class="info-highlight">Traje de Gala / Formal</p>
+        <p class="info-note">Color de vestimenta sugerido: <strong class="color-white-highlight">Blanco</strong>.</p>
+      </div>
+
+      <div class="info-divider"></div>
+
+      <div class="info-block">
+        <div class="info-icon">
+          <i class="fa-solid fa-envelope-open-text"></i>
+        </div>
+        <h4>LLUVIA DE SOBRES</h4>
+        <p class="info-highlight">Tu presencia es mi mayor regalo</p>
+        <p class="info-note">Si deseas hacerme un detalle, dispondremos de un cofre especial para sobres el día del evento.</p>
+      </div>
+    </section>
+
+    <!-- SILVER FLORAL DIVIDER 4 -->
+    <div class="silver-divider-bar">
+      <img src="silver_flowers_divider.png" alt="Silver Floral Garland" class="divider-floral-img" />
+    </div>
+
+    <!-- ==============================================
+         5. RSVP SECTION (WhatsApp Confirmation)
+         ============================================== -->
+    <section class="page-section rsvp-section" id="rsvp">
+      <div class="rsvp-badge">
+        <i class="fa-solid fa-crown"></i>
+      </div>
+      <h3 class="section-title">CONFIRMACIÓN DE ASISTENCIA</h3>
+      <p class="rsvp-intro">
+        Para nosotros es un honor contar con tu compañía en este día tan especial. 
+        Por favor ingresa tus datos para confirmar tu asistencia:
+      </p>
+
+      <form id="rsvpForm" class="rsvp-form" onsubmit="sendWhatsAppRSVP(event)">
+        <div class="form-group">
+          <label for="guestName"><i class="fa-solid fa-user"></i> Tu Nombre Completo</label>
+          <input type="text" id="guestName" placeholder="Ej: Familia Gómez / Carlos Pérez" required />
+        </div>
+
+        <div class="form-group">
+          <label for="guestPasses"><i class="fa-solid fa-users"></i> Número de Personas</label>
+          <select id="guestPasses">
+            <option value="1">1 Persona</option>
+            <option value="2" selected>2 Personas</option>
+            <option value="3">3 Personas</option>
+            <option value="4">4 Personas</option>
+            <option value="5">5 Personas</option>
+            <option value="6">6 Personas o más</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> Confirmar Asistencia por WhatsApp
+        </button>
+      </form>
+    </section>
+
+    <!-- ==============================================
+         6. FOOTER
+         ============================================== -->
+    <footer class="footer-section">
+      <div class="footer-crest">✦ 👑 ✦</div>
+      <h3 class="footer-name shimmer-silver">Isabela</h3>
+      <p class="footer-text">¡Te espero para celebrar la mejor noche de mi vida!</p>
+      <p class="footer-date">13 • NOVIEMBRE • LAURELES, MEDELLÍN</p>
+      <div class="silver-hr"></div>
+      <p class="copyright">Diseñado con todo el amor y elegancia para los XV de Isabela</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
