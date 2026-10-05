@@ -131,18 +131,18 @@
             <i class="fa-solid fa-location-dot"></i>
           </div>
           <h4>¿DÓNDE?</h4>
-          <p class="highlight-text">Carrera 81 #33-84</p>
-          <p class="detail-subtext">Laureles, Medellín</p>
+          <p class="highlight-text">Quarzo Eventos Premium</p>
+          <p class="detail-subtext">Carrera 81 #33-84, Laureles</p>
         </div>
 
       </div>
 
       <!-- Map Button & GPS -->
       <div class="location-actions">
-        <a href="https://maps.google.com/?q=Carrera+81+%2333-84+Laureles+Medellin" target="_blank" class="btn-royal">
+        <a href="https://maps.google.com/?q=Quarzo+Eventos+Premium+Carrera+81+%2333-84+Laureles+Medellin" target="_blank" class="btn-royal">
           <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
         </a>
-        <a href="https://waze.com/ul?q=Carrera+81+%2333-84+Laureles" target="_blank" class="btn-silver-ghost">
+        <a href="https://waze.com/ul?q=Quarzo+Eventos+Premium+Carrera+81+%2333-84+Laureles" target="_blank" class="btn-silver-ghost">
           <i class="fa-brands fa-waze"></i> Abrir con Waze
         </a>
       </div>
@@ -192,26 +192,22 @@
       </div>
       <h3 class="section-title">CONFIRMACIÓN DE ASISTENCIA</h3>
       <p class="rsvp-intro">
-        Para nosotros es un honor contar con tu compañía en este día tan especial. 
-        Por favor ingresa tus datos para confirmar tu asistencia:
+        Para nosotros es un honor contar con tu grata compañía en este día tan especial. 
+        Esta invitación es personal e intransferible (1 persona). 
+        Por favor ingresa tu nombre para confirmar tu cupo:
       </p>
 
       <form id="rsvpForm" class="rsvp-form" onsubmit="sendWhatsAppRSVP(event)">
         <div class="form-group">
           <label for="guestName"><i class="fa-solid fa-user"></i> Tu Nombre Completo</label>
-          <input type="text" id="guestName" placeholder="Ej: Familia Gómez / Carlos Pérez" required />
+          <input type="text" id="guestName" placeholder="Ej: Carlos Pérez" required />
         </div>
 
         <div class="form-group">
-          <label for="guestPasses"><i class="fa-solid fa-users"></i> Número de Personas</label>
-          <select id="guestPasses">
-            <option value="1">1 Persona</option>
-            <option value="2" selected>2 Personas</option>
-            <option value="3">3 Personas</option>
-            <option value="4">4 Personas</option>
-            <option value="5">5 Personas</option>
-            <option value="6">6 Personas o más</option>
-          </select>
+          <label><i class="fa-solid fa-ticket"></i> Cupo Asignado</label>
+          <div class="single-pass-badge">
+            <i class="fa-solid fa-circle-check"></i> 1 Pase Personal (1 Persona)
+          </div>
         </div>
 
         <button type="submit" class="btn-whatsapp">

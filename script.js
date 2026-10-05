@@ -167,8 +167,8 @@ function initCalendarLink() {
   if (!calBtn) return;
 
   const title = encodeURIComponent("Mis XV Años - Isabela 👑");
-  const details = encodeURIComponent("Celebración de los XV Años de Isabela. ¡Te esperamos para compartir esta noche mágica!");
-  const location = encodeURIComponent("Carrera 81 #33-84, Laureles, Medellín");
+  const details = encodeURIComponent("Celebración de los XV Años de Isabela en Quarzo Eventos Premium. ¡Te esperamos para compartir esta noche mágica!");
+  const location = encodeURIComponent("Quarzo Eventos Premium, Carrera 81 #33-84, Laureles, Medellín");
   
   // Format dates: YYYYMMDDTHHMMSSZ (UTC or local)
   const currentYear = new Date().getFullYear();
@@ -184,13 +184,12 @@ function sendWhatsAppRSVP(event) {
 
   const phone = "573137519376"; // WhatsApp Number 3137519376 (Colombia +57)
   const name = document.getElementById('guestName').value.trim();
-  const passes = document.getElementById('guestPasses').value;
 
   let text = `👑 *CONFIRMACIÓN DE ASISTENCIA - XV DE ISABELA* 👑\n\n`;
-  text += `👤 *Invitado(s):* ${name}\n`;
-  text += `🎟️ *Cupos confirmados:* ${passes}\n`;
-  text += `✨ *Estado:* ¡Confirmado! Asistiremos a la celebración 🎉\n\n`;
-  text += `📍 *Lugar:* Carrera 81 #33-84, Laureles`;
+  text += `👤 *Invitado(a):* ${name}\n`;
+  text += `🎟️ *Cupo:* 1 Persona (Pase Personal)\n`;
+  text += `✨ *Estado:* ¡Confirmado! Asistiré a la celebración 🎉\n\n`;
+  text += `📍 *Lugar:* Quarzo Eventos Premium (Carrera 81 #33-84, Laureles)`;
 
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`;
   window.open(whatsappUrl, '_blank');
