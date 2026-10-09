@@ -63,7 +63,7 @@ body {
   padding: 20px 12px 50px;
 }
 
-/* Background canvas for sparkles */
+/* Background canvas for sparkles (High z-index to overlay across page and buttons) */
 #particlesCanvas {
   position: fixed;
   top: 0;
@@ -71,33 +71,200 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 10001;
 }
 
-/* Floating Music Button */
+/* ==========================================================
+   ENTRANCE ROSE PORTAL (COVER SCREEN)
+   ========================================================== */
+.entrance-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  background: radial-gradient(circle at 50% 45%, #4a0715 0%, #200308 50%, #0a0103 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), visibility 1.2s ease;
+}
+
+.entrance-overlay.opened {
+  opacity: 0;
+  transform: scale(1.08);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.entrance-content {
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.entrance-crest {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 16px rgba(253, 224, 71, 0.8));
+  animation: crownGlow 3s ease-in-out infinite alternate;
+  margin-bottom: 2px;
+}
+
+.entrance-sub {
+  font-family: var(--font-royal);
+  font-size: 1.15rem;
+  letter-spacing: 4px;
+  color: #e2e8f0;
+  margin-bottom: 2px;
+}
+
+.entrance-name {
+  font-family: var(--font-script);
+  font-size: 4.8rem;
+  line-height: 1.05;
+  margin-bottom: 15px;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+}
+
+/* Interactive Silver Roses Button */
+.entrance-rose-wrapper {
+  position: relative;
+  width: 290px;
+  max-width: 78vw;
+  height: auto;
+  margin: 10px auto 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.entrance-rose-wrapper:hover {
+  transform: scale(1.06);
+}
+
+.entrance-rose-wrapper:active {
+  transform: scale(0.96);
+}
+
+.entrance-rose-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 3;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(212, 175, 55, 0.35));
+  animation: breatheRoses 4s ease-in-out infinite alternate;
+}
+
+@keyframes breatheRoses {
+  0% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.5)); }
+  100% { transform: translateY(-8px) scale(1.03); filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 45px rgba(254, 240, 138, 0.4)); }
+}
+
+.rose-glow-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(212, 175, 55, 0.25) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(15px);
+  z-index: 1;
+  pointer-events: none;
+  animation: pulseAura 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseAura {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.25); opacity: 1; }
+}
+
+.rose-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  animation: rippleWaves 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+@keyframes rippleWaves {
+  0% { width: 140px; height: 140px; opacity: 0.8; transform: translate(-50%, -50%) scale(0.8); }
+  100% { width: 320px; height: 320px; opacity: 0; transform: translate(-50%, -50%) scale(1.4); }
+}
+
+.entrance-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(55, 9, 19, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.2);
+  animation: promptPulse 2.5s ease-in-out infinite;
+}
+
+.entrance-prompt i {
+  color: var(--color-gold-light);
+  font-size: 1rem;
+  animation: fingerTap 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes fingerTap {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+@keyframes promptPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.15); }
+  50% { box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.4); border-color: #ffffff; }
+}
+
+/* Floating Music Button (Top Corner - Compact & Elegant) */
 .music-floating-btn {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  top: 20px;
+  right: 20px;
   z-index: 999;
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   cursor: pointer;
 }
 
 .music-disc {
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
   background: var(--silver-gradient-btn);
-  border: 2px solid #ffffff;
+  border: 1.5px solid #ffffff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--color-vinotinto-rich);
-  font-size: 1.3rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
-  transition: transform 0.3s ease;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .music-disc.playing {
@@ -110,15 +277,16 @@ body {
 }
 
 .music-tooltip {
-  background: rgba(45, 8, 16, 0.9);
+  background: rgba(45, 8, 16, 0.92);
   border: 1px solid var(--color-silver-mid);
   color: var(--color-silver-light);
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: 20px;
-  font-size: 0.8rem;
-  margin-right: 10px;
+  font-size: 0.75rem;
+  margin-right: 8px;
   display: none;
   font-weight: 500;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .music-floating-btn:hover .music-tooltip {
@@ -891,5 +1059,22 @@ body {
   /* Photo corner mobile tweaks */
   .photo-corner {
     width: 60px;
+  }
+
+  /* Entrance screen mobile adjustments */
+  .entrance-name {
+    font-size: 3.6rem;
+  }
+  .entrance-rose-wrapper {
+    width: 230px;
+    margin: 6px auto 18px;
+  }
+  .entrance-sub {
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+  }
+  .entrance-prompt {
+    font-size: 0.82rem;
+    padding: 8px 16px;
   }
 }
