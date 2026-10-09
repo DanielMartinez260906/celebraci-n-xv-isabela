@@ -110,6 +110,7 @@ function initParticles() {
   const particles = [];
 
   for (let i = 0; i < particlesCount; i++) {
+    const isGold = Math.random() < 0.25; // 25% subtle warm gold sparkles, 75% silver
     particles.push({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -118,7 +119,8 @@ function initParticles() {
       speedY: -Math.random() * 0.6 - 0.2, // Float upwards
       opacity: Math.random() * 0.7 + 0.3,
       fadeSpeed: Math.random() * 0.01 + 0.005,
-      growing: Math.random() > 0.5
+      growing: Math.random() > 0.5,
+      isGold: isGold
     });
   }
 
@@ -137,9 +139,17 @@ function initParticles() {
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(230, 235, 245, ${p.opacity})`;
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = 'rgba(255, 255, 255, 0.8)';
+      
+      if (p.isGold) {
+        ctx.fillStyle = `rgba(254, 240, 138, ${p.opacity})`;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = 'rgba(234, 179, 8, 0.9)';
+      } else {
+        ctx.fillStyle = `rgba(240, 245, 255, ${p.opacity})`;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = 'rgba(255, 255, 255, 0.85)';
+      }
+      
       ctx.fill();
 
       // Move particle

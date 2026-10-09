@@ -5,10 +5,10 @@
 
 :root {
   /* Color Palette: Rich Vino Tinto & Luxury Silver */
-  --color-vinotinto-deep: #1c0206;
-  --color-vinotinto-base: #32050e;
+  --color-vinotinto-deep: #1a0206;
+  --color-vinotinto-base: #30040d;
   --color-vinotinto-rich: #4d0a17;
-  --color-vinotinto-section: rgba(55, 9, 19, 0.72);
+  --color-vinotinto-section: rgba(55, 9, 19, 0.75);
   --color-vinotinto-accent: #8b182d;
   
   --color-silver-light: #ffffff;
@@ -16,10 +16,18 @@
   --color-silver-metal: #a6b1bf;
   --color-silver-dark: #64748b;
 
-  --silver-gradient-beam: linear-gradient(90deg, transparent 0%, rgba(203, 213, 225, 0.4) 25%, #ffffff 50%, rgba(203, 213, 225, 0.4) 75%, transparent 100%);
+  /* Subtle Warm Gold Luxury Accents */
+  --color-gold-light: #fef08a;
+  --color-gold-rich: #eab308;
+  --color-gold-metallic: #d4af37;
+  --color-gold-glow: rgba(212, 175, 55, 0.4);
+  --gold-gradient-text: linear-gradient(135deg, #fffbeb 0%, #fde047 50%, #ca8a04 100%);
+  --gold-gradient-border: linear-gradient(135deg, #fef08a, #d4af37, #996515);
+
+  --silver-gradient-beam: linear-gradient(90deg, transparent 0%, rgba(203, 213, 225, 0.3) 20%, #ffffff 50%, rgba(203, 213, 225, 0.3) 80%, transparent 100%);
   --silver-gradient-text: linear-gradient(135deg, #ffffff 0%, #e2e8f0 35%, #94a3b8 70%, #ffffff 100%);
   --silver-gradient-border: linear-gradient(135deg, #ffffff, #94a3b8, #e2e8f0, #cbd5e1);
-  --silver-gradient-btn: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  --silver-gradient-btn: linear-gradient(135deg, #ffffff 0%, #f1f5f9 45%, #cbd5e1 80%, #94a3b8 100%);
   
   --font-royal: 'Cinzel Decorative', serif;
   --font-script: 'Great Vibes', cursive;
@@ -27,6 +35,7 @@
   --font-sans: 'Montserrat', sans-serif;
 
   --shadow-silver-glow: 0 0 25px rgba(255, 255, 255, 0.35);
+  --shadow-gold-glow: 0 0 20px rgba(212, 175, 55, 0.35);
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
@@ -142,7 +151,7 @@ body {
   border: 1.5px solid rgba(226, 232, 240, 0.35);
   border-radius: var(--radius-lg);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 24, 45, 0.3);
-  padding: 45px 24px 30px;
+  padding: 35px 20px 20px;
   overflow: hidden;
   text-align: center;
 }
@@ -151,7 +160,7 @@ body {
 .page-section {
   position: relative;
   background: transparent;
-  padding: 10px 15px;
+  padding: 2px 15px;
   text-align: center;
 }
 
@@ -163,7 +172,8 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 10px 0;
+  padding: 0;
+  margin: -2px 0;
   width: 100%;
 }
 
@@ -185,7 +195,7 @@ body {
 
 .divider-floral-img {
   width: 100%;
-  max-width: 320px;
+  max-width: 290px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -266,9 +276,16 @@ body {
 }
 
 .hero-crest {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   margin-bottom: 4px;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  filter: drop-shadow(0 0 14px rgba(253, 224, 71, 0.75));
+  display: inline-block;
+  animation: crownGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes crownGlow {
+  0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(253, 224, 71, 0.6)); }
+  100% { transform: scale(1.05); filter: drop-shadow(0 0 18px rgba(253, 224, 71, 0.95)); }
 }
 
 .subtitle-royal {
@@ -276,7 +293,8 @@ body {
   font-size: 0.88rem;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--color-silver-mid);
+  color: var(--color-gold-light);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
   margin-bottom: 4px;
 }
 
@@ -284,17 +302,17 @@ body {
   font-family: var(--font-royal);
   font-size: 1.15rem;
   letter-spacing: 3px;
-  color: #cbd5e1;
+  color: #e2e8f0;
   margin-bottom: 4px;
 }
 
 .main-name {
   font-family: var(--font-script);
-  font-size: 4.5rem;
+  font-size: 4.6rem;
   font-weight: normal;
   line-height: 1.05;
   margin: 4px 0 12px;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 10px rgba(253, 224, 71, 0.35);
 }
 
 /* Silver Flowers Hero Centerpiece */
@@ -309,7 +327,7 @@ body {
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.4));
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 6px rgba(212, 175, 55, 0.3));
   animation: floatFlowers 5s ease-in-out infinite alternate;
 }
 
@@ -323,9 +341,95 @@ body {
   font-style: italic;
   font-size: 1rem;
   line-height: 1.55;
-  color: #f1f5f9;
+  color: #f8fafc;
   max-width: 480px;
   margin: 0 auto;
+}
+
+/* ==========================================================
+   QUINCEAÑERA PHOTOS (ISABELA 01, 02, 03 - SEAMLESS & ORGANIC)
+   No cards, no background boxes, pure high-res photo with silver corners
+   ========================================================== */
+.photo-section {
+  padding: 4px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.photo-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Full resolution image with pure, natural clarity (no artificial filters or pixelation) */
+.isabela-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease;
+  image-rendering: auto;
+}
+
+.photo-wrapper:hover .isabela-photo {
+  transform: scale(1.01);
+}
+
+/* Ornate Silver Corner Flowers attached directly over photo corners */
+.photo-corner {
+  position: absolute;
+  width: 80px;
+  max-width: 22vw;
+  height: auto;
+  pointer-events: none;
+  z-index: 5;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.75));
+  opacity: 0.95;
+  transition: transform 0.4s ease;
+}
+
+.photo-corner.corner-tl {
+  top: -8px;
+  left: -8px;
+}
+
+.photo-corner.corner-tr {
+  top: -8px;
+  right: -8px;
+  transform: scaleX(-1);
+}
+
+.photo-corner.corner-bl {
+  bottom: -8px;
+  left: -8px;
+  transform: scaleY(-1);
+}
+
+.photo-corner.corner-br {
+  bottom: -8px;
+  right: -8px;
+  transform: scale(-1);
+}
+
+.photo-wrapper:hover .photo-corner.corner-tl {
+  transform: scale(1.08);
+}
+.photo-wrapper:hover .photo-corner.corner-tr {
+  transform: scaleX(-1) scale(1.08);
+}
+.photo-wrapper:hover .photo-corner.corner-bl {
+  transform: scaleY(-1) scale(1.08);
+}
+.photo-wrapper:hover .photo-corner.corner-br {
+  transform: scale(-1) scale(1.08);
 }
 
 /* ==========================================================
@@ -345,12 +449,18 @@ body {
 }
 
 .time-box {
-  background: linear-gradient(145deg, rgba(68, 11, 23, 0.9), rgba(25, 3, 8, 0.95));
-  border: 1.5px solid rgba(226, 232, 240, 0.4);
+  background: linear-gradient(145deg, rgba(68, 11, 23, 0.92), rgba(25, 3, 8, 0.96));
+  border: 1.5px solid rgba(226, 232, 240, 0.45);
   border-radius: var(--radius-sm);
   padding: 12px 10px;
   min-width: 68px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35), inset 0 1px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35), inset 0 1px rgba(254, 240, 138, 0.25);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.time-box:hover {
+  border-color: var(--color-gold-light);
+  transform: translateY(-2px);
 }
 
 .time-number {
@@ -367,9 +477,9 @@ body {
 .time-label {
   font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--color-silver-metal);
-  font-weight: 500;
+  letter-spacing: 1.2px;
+  color: var(--color-gold-light);
+  font-weight: 600;
 }
 
 /* ==========================================================
@@ -391,18 +501,18 @@ body {
 }
 
 .detail-icon-circle {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(139, 24, 45, 0.4));
+  background: linear-gradient(135deg, rgba(254, 240, 138, 0.15), rgba(139, 24, 45, 0.5));
   border: 1.5px solid #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  color: #ffffff;
+  color: var(--color-gold-light);
   margin-bottom: 10px;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.3), inset 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
 .detail-item h4 {
@@ -415,7 +525,7 @@ body {
 
 .highlight-text {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 2px;
@@ -423,13 +533,13 @@ body {
 
 .detail-subtext {
   font-size: 0.9rem;
-  color: var(--color-silver-metal);
+  color: var(--color-silver-mid);
 }
 
 .vertical-silver-divider {
   width: 1px;
   height: 75px;
-  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.6), transparent);
 }
 
 .location-actions {
@@ -725,11 +835,11 @@ body {
    ========================================================== */
 @media (max-width: 580px) {
   body {
-    padding: 10px 8px 40px;
+    padding: 10px 8px 30px;
   }
 
   .page-section {
-    padding: 30px 16px;
+    padding: 8px 12px;
   }
 
   .floral-corner {
@@ -776,5 +886,10 @@ body {
   }
   .time-number {
     font-size: 1.6rem;
+  }
+
+  /* Photo corner mobile tweaks */
+  .photo-corner {
+    width: 60px;
   }
 }
